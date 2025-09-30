@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Button from "../Button/page";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function Navbar() {
       <div className="container h-[75px] flex items-center justify-evenly py-3">
         {/* Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
-          <img src="/images/logos/nav-logo.png" alt="logo" className="w-30" />
+          <Image src="/images/logos/nav-logo.png" alt="logo" className="w-30" />
         </Link>
 
         {/* Desktop nav */}

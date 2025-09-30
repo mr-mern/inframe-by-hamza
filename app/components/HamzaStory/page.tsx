@@ -13,6 +13,9 @@ export default function HamzaStory() {
               alt="Client"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 80vw, 
+         (max-width: 1200px) 30rem, 
+         30rem"
             />
           </div>
         </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "@/app/components/Navbar/page";
 import Hero from "./components/HomeHero/page";
 import ImageSlider from "./components/ImageSlider/page";
 import HamzaStory from "./components/HamzaStory/page";

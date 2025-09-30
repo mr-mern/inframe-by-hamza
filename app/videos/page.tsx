@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Button from "../components/Button/page";
 import { PlayCircle } from "lucide-react";
 
 const videos = [
@@ -31,10 +33,16 @@ export default function VideosPage() {
     <section className="bg-[#f5f3ef] text-[#172b1b] min-h-screen">
       {/* Hero Section */}
       <div className="relative h-[90vh] flex items-center justify-center text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/videosPage/banner.jpg')" }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src="/images/videosPage/banner.jpg"
+            alt="Videos Banner"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 px-6">
           <h1 className="text-4xl md:text-6xl font-bold text-[#e9e3db]">
@@ -55,11 +63,15 @@ export default function VideosPage() {
               className="bg-[#e9e3db] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group"
             >
               {/* Video Thumbnail with Overlay */}
-              <div className="relative w-full h-56 md:h-64">
-                <img
+              <div className="relative w-full h-56 md:h-64 overflow-hidden">
+                <Image
                   src={video.thumbnail}
                   alt={video.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 
+                         (max-width: 1200px) 50vw, 
+                         33vw"
                 />
                 <a
                   href={video.url}
@@ -81,6 +93,15 @@ export default function VideosPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View All Videos Button */}
+        <div className="mt-20 text-center">
+          <Button
+            href="/all-videos"
+            label="View All Videos"
+            className="text-[#e9e3db] py-3"
+          />
         </div>
       </div>
     </section>

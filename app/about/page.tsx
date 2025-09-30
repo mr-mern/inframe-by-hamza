@@ -43,9 +43,7 @@ export default function AboutUs() {
           </p>
         </div>
       </div>
-      {/* Story Section with Bottom-Only Skew */}
       <div className="relative bg-[#172b1b] text-[#e9e3db]">
-        {/* Inner content - straight */}
         <div className="container mx-auto px-6 md:px-12 py-20">
           <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Portrait */}
@@ -68,7 +66,7 @@ export default function AboutUs() {
                 dedication.
               </p>
               <p className="text-lg">
-                Every photo I take is more than an image—it’s a story frozen in
+                Every photo I take is more than an image it's a story frozen in
                 time, a memory to be cherished forever.
               </p>
             </div>
@@ -139,7 +137,7 @@ export default function AboutUs() {
       {/* Call to Action */}
       <CTA
         title="Let's Create Together"
-        subtitle="Ready to capture your moments? Contact me today and let’s make memories that last forever."
+        subtitle="Ready to capture your moments? Contact me today and let's make memories that last forever."
         buttonText="Book a Session"
         buttonHref="/contact"
       />
