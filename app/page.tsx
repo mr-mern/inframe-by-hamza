@@ -3,7 +3,6 @@
 import Navbar from "@/app/components/Navbar/page";
 import Hero from "./components/HomeHero/page";
 import ImageSlider from "./components/ImageSlider/page";
-import Spacing from "./components/Spacing/page";
 import HamzaStory from "./components/HamzaStory/page";
 import CTA from "./components/CTA/page";
 import Testimonials from "./Testimonials/page";

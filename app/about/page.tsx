@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import CTA from "../components/CTA/page";
 import SectionHeading from "../components/SectionHeading/page";
 

@@ -10,7 +10,7 @@ export default function contact() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/contact/banner.jpg')" }} // replace with your image
+          style={{ backgroundImage: "url('/images/contact/banner.jpg')" }}
         ></div>
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
