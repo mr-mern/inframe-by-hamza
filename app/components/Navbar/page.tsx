@@ -15,7 +15,6 @@ export default function Navbar() {
     { href: "/portfolios", label: "Portfolios" },
     { href: "/videos", label: "Videos" },
     { href: "/packages", label: "Packages" },
-    // { href: "/contact", label: "Contact" },
   ];
 
   useEffect(() => {
@@ -37,7 +36,13 @@ export default function Navbar() {
       <div className="container h-[75px] flex items-center justify-evenly py-3">
         {/* Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/images/logos/nav-logo.png" alt="logo" className="w-30" />
+          <Image
+            src="/images/logos/nav-logo.png"
+            alt="logo"
+            width={120}  
+            height={60}  
+            className="object-contain"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -46,7 +51,7 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-[#172b1b] hover:text-[#717552] transition-colors font-[]`}
+              className="text-[#172b1b] hover:text-[#717552] transition-colors font-medium"
             >
               {item.label}
             </Link>

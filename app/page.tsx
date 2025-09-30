@@ -16,7 +16,7 @@ export default function Home() {
       {/* Call to Action */}
       <CTA
         title="Let's Create Together"
-        subtitle="Ready to capture your moments? Contact me today and let’s make memories that last forever."
+        subtitle="Ready to capture your moments? Contact me today and let&apos;s make memories that last forever."
         buttonText="Book a Session"
         buttonHref="/contact"
       />

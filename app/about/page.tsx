@@ -7,18 +7,18 @@ import SectionHeading from "../components/SectionHeading/page";
 export default function AboutUs() {
   const featuredPhotos = [
     {
-      src: "/images/categories/portrait/portrait-1.jpg",
+      src: "/images/couples/ali-ayesha/1.jpg",
       title: "Sunset Bliss",
     },
-    { src: "/images/categories/portrait/portrait-2.jpg", title: "Urban Life" },
-    { src: "/images/categories/portrait/portrait-3.jpg", title: "Nature Walk" },
-    { src: "/images/categories/portrait/portrait-4.jpg", title: "Golden Hour" },
+    { src: "/images/couples/ali-ayesha/2.jpg", title: "Urban Life" },
+    { src: "/images/couples/ali-ayesha/3.jpg", title: "Nature Walk" },
+    { src: "/images/couples/ali-ayesha/4.jpg", title: "Golden Hour" },
     {
-      src: "/images/categories/portrait/portrait-5.jpg",
+      src: "/images/couples/ali-ayesha/5.jpg",
       title: "Portrait Magic",
     },
     {
-      src: "/images/categories/portrait/portrait-6.jpg",
+      src: "/images/couples/ali-ayesha/6.jpg",
       title: "Waves & Sands",
     },
   ];
@@ -60,13 +60,13 @@ export default function AboutUs() {
             <div className="md:w-1/2">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">My Story</h2>
               <p className="text-lg mb-4">
-                Over the past decade, I have been capturing life's most
+                Over the past decade, I have been capturing life&apos;s most
                 beautiful moments. From intimate portraits to breathtaking
                 landscapes, my work is a reflection of passion, creativity, and
                 dedication.
               </p>
               <p className="text-lg">
-                Every photo I take is more than an image it's a story frozen in
+                Every photo I take is more than an image it&apos;s a story frozen in
                 time, a memory to be cherished forever.
               </p>
             </div>
@@ -123,7 +123,7 @@ export default function AboutUs() {
           <div className="bg-[#172b1b]/90 p-6 rounded-xl shadow-lg hover:shadow-xl transition">
             <h3 className="text-xl font-semibold mb-2">Passion</h3>
             <p>
-              Photography is not just a job, it's a lifelong passion driving
+              Photography is not just a job, it&apos;s a lifelong passion driving
               every shot.
             </p>
           </div>
@@ -137,7 +137,7 @@ export default function AboutUs() {
       {/* Call to Action */}
       <CTA
         title="Let's Create Together"
-        subtitle="Ready to capture your moments? Contact me today and let's make memories that last forever."
+        subtitle="Ready to capture your moments? Contact me today and let&apos;s make memories that last forever."
         buttonText="Book a Session"
         buttonHref="/contact"
       />
