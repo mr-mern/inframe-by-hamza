@@ -8,7 +8,7 @@ import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
 import { couples } from "@/app/data/couples";
-import SectionHeading from "../SectionHeading/page";
+import SectionHeading from "../SectionHeading/heading";
 
 export default function ImageSlider() {
   return (

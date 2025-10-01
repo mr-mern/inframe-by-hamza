@@ -2,7 +2,7 @@
 
 import { portfolios } from "@/app/data/portfolios";
 import Link from "next/link";
-import SectionHeading from "../components/SectionHeading/page";
+import SectionHeading from "../components/SectionHeading/heading";
 import Image from "next/image";
 
 export default function PortfolioPage() {

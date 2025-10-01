@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import CTA from "../components/CTA/page";
-import SectionHeading from "../components/SectionHeading/page";
+import CTA from "../components/CTA/CTA";
+import SectionHeading from "../components/SectionHeading/heading";
 
 export default function AboutUs() {
   const featuredPhotos = [

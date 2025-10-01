@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
-import SectionHeading from "../components/SectionHeading/page";
+import SectionHeading from "../components/SectionHeading/heading";
 
 export default function Packages() {
   const packages = [

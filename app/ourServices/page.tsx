@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Camera, Heart, Calendar, Briefcase } from "lucide-react";
-import CTA from "../components/CTA/page";
+import CTA from "../components/CTA/CTA";
 
 const services = [
   {

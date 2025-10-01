@@ -1,19 +1,31 @@
-import SectionHeading from "@/app/components/SectionHeading/page";
-import { couples } from "@/app/data/couples";
 import Image from "next/image";
+import SectionHeading from "@/app/components/SectionHeading/heading";
+import { couples } from "@/app/data/couples";
 
-export default function CoupleDetail({ params }: { params: { slug: string } }) {
-  const couple = couples.find((c) => c.slug === params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params; // 👈 yahan await
+  const couple = couples.find((c) => c.slug === slug);
+  return {
+    title: couple ? couple.name : "Couple Not Found",
+  };
+}
+
+export default async function CoupleDetail({ params }) {
+  const { slug } = await params;
+  const couple = couples.find((c) => c.slug === slug);
 
   if (!couple) {
-    return <div className="py-20 text-center">Couple not found</div>;
+    return (
+      <div className="py-20 text-center text-xl font-semibold">
+        Couple not found
+      </div>
+    );
   }
 
   return (
     <section className="bg-[#f5f3ef] min-h-screen">
-      {/* Hero Section with Banner */}
+      {/* Hero Section */}
       <div className="relative h-[60vh] w-full">
-        {/* Banner Image */}
         <Image
           src="/images/couples/cover.jpg"
           alt={couple.name}
@@ -21,13 +33,10 @@ export default function CoupleDetail({ params }: { params: { slug: string } }) {
           priority
           className="object-cover"
         />
+        <div className="absolute inset-0 bg-black/30"></div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[#000]/30"></div>
-
-        {/* Calendar Card - Top Left */}
+        {/* Calendar Card */}
         <div className="absolute top-6 left-6 flex flex-col items-center gap-2">
-          {/* Date Box */}
           <div className="bg-[#e9e3db] text-[#172b1b] rounded-lg shadow-lg p-4 w-30 flex flex-col items-center">
             <span className="text-sm font-semibold uppercase">
               {new Date(couple.date).toLocaleString("default", {
@@ -42,7 +51,6 @@ export default function CoupleDetail({ params }: { params: { slug: string } }) {
             </span>
           </div>
 
-          {/* Label Box */}
           <div className="bg-[#717552] text-[#e9e3db] rounded-md shadow-md px-3 py-1 w-30 flex justify-center items-center">
             <span className="text-xs font-medium uppercase tracking-wide">
               Wedding Date
@@ -50,7 +58,7 @@ export default function CoupleDetail({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* Text Content Center */}
+        {/* Couple Name */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-[#e9e3db] px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{couple.name}</h1>
         </div>
@@ -68,7 +76,6 @@ export default function CoupleDetail({ params }: { params: { slug: string } }) {
           subtitle="A glimpse of our journey together captured in timeless moments."
           align="center"
         />
-        {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {couple.gallery.map((img, idx) => (
             <div

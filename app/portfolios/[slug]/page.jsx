@@ -1,15 +1,21 @@
 import { portfolios } from "@/app/data/portfolios";
 import Image from "next/image";
 
-function shuffleArray<T>(array: T[]): T[] {
+function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
-export default function PortfolioDetail({ params }: { params: { slug: string } }) {
-  const portfolio = portfolios.find((p) => p.slug === params.slug);
+export default async function PortfolioDetail({ params }) {
+  const { slug } = await params;
+
+  const portfolio = portfolios.find((p) => p.slug === slug);
 
   if (!portfolio) {
-    return <div className="py-20 text-center text-xl font-semibold">Portfolio not found</div>;
+    return (
+      <div className="py-20 text-center text-xl font-semibold">
+        Portfolio not found
+      </div>
+    );
   }
 
   const shuffledImages = shuffleArray(portfolio.images);

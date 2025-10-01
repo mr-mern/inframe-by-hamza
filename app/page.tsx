@@ -1,9 +1,9 @@
 "use client";
 
-import Hero from "./components/HomeHero/page";
-import ImageSlider from "./components/ImageSlider/page";
-import HamzaStory from "./components/HamzaStory/page";
-import CTA from "./components/CTA/page";
+import Hero from "./components/HomeHero/hero";
+import ImageSlider from "./components/ImageSlider/imageSlider";
+import HamzaStory from "./components/HamzaStory/hamzaStory";
+import CTA from "./components/CTA/CTA";
 import Testimonials from "./Testimonials/page";
 
 export default function Home() {

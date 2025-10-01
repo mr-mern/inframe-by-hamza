@@ -1,8 +1,9 @@
 // app/layout.tsx
 import "./globals.css";
-import Navbar from "./components/Navbar/page";
+import Navbar from "./components/Navbar/navbar";
 import { Poppins, Lora, Great_Vibes } from "next/font/google";
-import Footer from "./components/Footer/page";
+import Footer from "./components/Footer/footer";
+import Greeting from "./components/greeting";
 
 // Default font (Poppins)
 const poppins = Poppins({
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="min-h-screen flex flex-col bg-white text-gray-900 font-sans">
         <Navbar />
+        <Greeting />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

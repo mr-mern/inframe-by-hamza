@@ -1,0 +1,42 @@
+'use client';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+
+export default function Greeting() {
+  const pathname = usePathname(); // Current page path
+  const [greeting, setGreeting] = useState('');
+
+  useEffect(() => {
+    const hours = new Date().getHours();
+    let msg = '';
+    if (hours < 12) msg = 'Good Morning';
+    else if (hours < 17) msg = 'Good Afternoon';
+    else if (hours < 20) msg = 'Good Evening';
+    else msg = 'Good Night';
+    setGreeting(msg);
+  }, []);
+
+  // ✅ Only render on homepage
+  if (pathname !== '/') return null;
+
+  return (
+    <div className="absolute top-[80px] right-2 flex flex-col items-center gap-2 z-40">
+      {/* Main Greeting Box */}
+      <div className="bg-[#e9e3db] text-[#172b1b] rounded-lg shadow-lg p-4 w-40 flex flex-col items-center">
+        <span className="text-sm font-semibold uppercase tracking-wider">
+          {greeting.split(' ')[0]}
+        </span>
+        <span className="text-lg sm:text-2xl font-bold leading-none text-center">
+          {greeting.split(' ')[1]}!
+        </span>
+      </div>
+
+      {/* Optional Tag / Label */}
+      <div className="bg-[#717552] text-[#e9e3db] rounded-md shadow-md px-3 py-1 w-40 flex justify-center items-center">
+        <span className="text-xs font-medium uppercase tracking-wide text-center">
+          Welcome
+        </span>
+      </div>
+    </div>
+  );
+}

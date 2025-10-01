@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Button from "../components/Button/page";
+import Button from "../components/Button/button";
 import { PlayCircle } from "lucide-react";
 
 const videos = [

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { User } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Button from "../components/Button/page";
+import Button from "../components/Button/button";
 
 // ⭐ Default Reviews
 const defaultTestimonials = [

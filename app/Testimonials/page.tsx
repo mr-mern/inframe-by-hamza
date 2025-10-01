@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { User } from "lucide-react";
-import SectionHeading from "../components/SectionHeading/page";
-import Button from "../components/Button/page";
+import SectionHeading from "../components/SectionHeading/heading";
+import Button from "../components/Button/button";
 
 const defaultTestimonials = [
   {

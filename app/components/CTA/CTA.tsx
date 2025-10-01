@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "../Button/page";
+import Button from "../Button/button";
 
 interface CTAProps {
   title: string;

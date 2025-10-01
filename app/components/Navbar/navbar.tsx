@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Button from "../Button/page";
+import Button from "../Button/button";
 import Image from "next/image";
 
 export default function Navbar() {
