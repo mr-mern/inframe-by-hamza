@@ -3,6 +3,7 @@
 import Image from "next/image";
 import CTA from "../components/CTA/CTA";
 import SectionHeading from "../components/SectionHeading/heading";
+import DeveloperCredit from "../components/DeveloperCredit";
 
 export default function AboutUs() {
   const featuredPhotos = [
@@ -141,6 +142,8 @@ export default function AboutUs() {
         buttonText="Book a Session"
         buttonHref="/contact"
       />
+
+      <DeveloperCredit />
     </section>
   );
 }

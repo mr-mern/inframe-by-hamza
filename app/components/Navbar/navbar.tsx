@@ -18,9 +18,7 @@ export default function Navbar() {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -33,14 +31,14 @@ export default function Navbar() {
           : "bg-[#e9e3db] border-[#717552]/20"
       }`}
     >
-      <div className="container h-[75px] flex items-center justify-evenly py-3">
-        {/* Logo + Brand */}
+      <div className="container h-[75px] flex items justify-between md:justify-around px-4 sm:px-6 md:px-12">
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/images/logos/nav-logo.png"
             alt="logo"
-            width={120}  
-            height={60}  
+            width={120}
+            height={60}
             className="object-contain"
           />
         </Link>

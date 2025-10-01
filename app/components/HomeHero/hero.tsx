@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Hero() {
-  // Images list
   const images = [
     "/images/hero-banner/banner (1).jpg",
     "/images/hero-banner/banner (2).jpg",
@@ -17,12 +16,12 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 3000); 
+    }, 3000);
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    <section className="relative h-[90vh] w-full overflow-hidden">
+    <section className="relative h-[90vh] md:h-[100vh] w-full overflow-hidden">
       {/* Background Images */}
       {images.map((img, index) => (
         <div
@@ -38,16 +37,36 @@ export default function Hero() {
             priority={index === 0}
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-black/60 md:bg-black/70" />
         </div>
       ))}
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center font-[Lora] text-center text-white px-4">
-        <h1 className="text-4xl md:text-6xl font-light tracking-[1rem]">
+      <div className="absolute inset-0 flex flex-col items-center justify-center font-[Lora] text-center text-white px-4 sm:px-6 md:px-8">
+        {/* Heading */}
+        <h1 className="
+          text-2xl 
+          sm:text-4xl 
+          md:text-6xl 
+          font-light 
+          tracking-[0.2rem] 
+          sm:tracking-[0.5rem] 
+          md:tracking-[1rem]
+        ">
           HAMZA
         </h1>
-        <h2 className="text-3xl md:text-5xl mt-2 font-light tracking-[2rem]">
+
+        {/* Subheading */}
+        <h2 className="
+          text-lg 
+          sm:text-3xl 
+          md:text-5xl 
+          mt-2 
+          font-light 
+          tracking-[0.2rem] 
+          sm:tracking-[0.5rem] 
+          md:tracking-[2rem]
+        ">
           PHOTOGRAPHY
         </h2>
       </div>

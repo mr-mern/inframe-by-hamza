@@ -32,7 +32,6 @@ const defaultTestimonials = [
   },
 ];
 
-// ⭐ Star Component
 function StarIcon({
   filled,
   size = "w-6 h-6",
@@ -76,7 +75,6 @@ export default function Testimonials() {
   });
   const [hoverRating, setHoverRating] = useState(0);
 
-  // ✅ LocalStorage se load
   useEffect(() => {
     const saved = localStorage.getItem("reviews");
     if (saved) {
@@ -84,13 +82,12 @@ export default function Testimonials() {
     }
   }, []);
 
-  // ✅ Save localStorage me
   const saveReviews = (reviews: typeof testimonials) => {
     setTestimonials(reviews);
     localStorage.setItem("reviews", JSON.stringify(reviews));
   };
 
-  // ✅ Form input
+  //  Form input
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -101,7 +98,7 @@ export default function Testimonials() {
     setFormData({ ...formData, rating: value });
   };
 
-  // ✅ Form submit
+  //  Form submit
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (
@@ -160,7 +157,11 @@ export default function Testimonials() {
 
         {/* View All Reviews Button */}
         <div className="flex justify-center mt-8">
-          <Button href="/allTestimonials" label="View All Reviews" className="py-3" />
+          <Button
+            href="/allTestimonials"
+            label="View All Reviews"
+            className="py-3"
+          />
         </div>
 
         {/* Submit Review Form */}
@@ -175,7 +176,9 @@ export default function Testimonials() {
                 Your words inspire us to keep creating beautiful memories. Share
                 your experience and let others know how we did!
               </p>
-              <div className="flex gap-2 text-yellow-400 text-3xl">★ ★ ★ ★ ★</div>
+              <div className="flex gap-2 text-yellow-400 text-3xl">
+                ★ ★ ★ ★ ★
+              </div>
             </div>
 
             {/* Right Form */}

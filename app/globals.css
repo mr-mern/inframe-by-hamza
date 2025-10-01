@@ -50,3 +50,7 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+.add-review:hover {
+  background-color: #172b1b;
+}

@@ -20,20 +20,20 @@ export default function Greeting() {
   if (pathname !== '/') return null;
 
   return (
-    <div className="absolute top-[80px] right-2 flex flex-col items-center gap-2 z-40">
+    <div className="absolute top-20 sm:top-[80px] right-2 sm:right-2 flex flex-col items-center gap-2 z-40">
       {/* Main Greeting Box */}
-      <div className="bg-[#e9e3db] text-[#172b1b] rounded-lg shadow-lg p-4 w-40 flex flex-col items-center">
-        <span className="text-sm font-semibold uppercase tracking-wider">
+      <div className="bg-[#e9e3db] text-[#172b1b] rounded-lg shadow-lg p-4 w-36 sm:w-40 flex flex-col items-center">
+        <span className="text-sm sm:text-base font-semibold uppercase tracking-wider">
           {greeting.split(' ')[0]}
         </span>
-        <span className="text-lg sm:text-2xl font-bold leading-none text-center">
+        <span className="text-base sm:text-2xl font-bold leading-none text-center">
           {greeting.split(' ')[1]}!
         </span>
       </div>
 
       {/* Optional Tag / Label */}
-      <div className="bg-[#717552] text-[#e9e3db] rounded-md shadow-md px-3 py-1 w-40 flex justify-center items-center">
-        <span className="text-xs font-medium uppercase tracking-wide text-center">
+      <div className="bg-[#717552] text-[#e9e3db] rounded-md shadow-md px-3 py-1 w-36 sm:w-40 flex justify-center items-center">
+        <span className="text-xs sm:text-sm font-medium uppercase tracking-wide text-center">
           Welcome
         </span>
       </div>
