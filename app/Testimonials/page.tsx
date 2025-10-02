@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { User } from "lucide-react";
 import SectionHeading from "../components/SectionHeading/heading";
 import Button from "../components/Button/button";
@@ -75,6 +75,10 @@ export default function Testimonials() {
   });
   const [hoverRating, setHoverRating] = useState(0);
 
+  // 👇 animation state
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     const saved = localStorage.getItem("reviews");
     if (saved) {
@@ -87,7 +91,6 @@ export default function Testimonials() {
     localStorage.setItem("reviews", JSON.stringify(reviews));
   };
 
-  //  Form input
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -98,7 +101,6 @@ export default function Testimonials() {
     setFormData({ ...formData, rating: value });
   };
 
-  //  Form submit
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (
@@ -114,9 +116,28 @@ export default function Testimonials() {
     }
   };
 
+  // 👇 Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   return (
-    <section className="py-20 bg-[#e9e3db]">
-      <div className="container mx-auto px-4">
+    <section
+      ref={sectionRef}
+      className="py-20 bg-[#e9e3db] overflow-hidden"
+    >
+      <div
+        className={`container mx-auto px-4 transition-all duration-1000 ease-out
+        ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
+      `}
+      >
         {/* Section Heading */}
         <SectionHeading title="What Our Clients Say" align="center" />
 
@@ -125,7 +146,11 @@ export default function Testimonials() {
           {testimonials.slice(0, 4).map((testimonial, idx) => (
             <div
               key={idx}
-              className="bg-[#172b1b] text-[#e9e3db] rounded-lg shadow-lg flex flex-col items-center text-center hover:scale-105 transition-transform duration-300 p-6"
+              className={`bg-[#172b1b] text-[#e9e3db] rounded-lg shadow-lg flex flex-col items-center text-center p-6
+                transition-all duration-700 ease-out
+                ${inView ? "opacity-100 scale-100" : "opacity-0 scale-90"}
+              `}
+              style={{ transitionDelay: `${idx * 150}ms` }} // stagger effect
             >
               {/* User Icon */}
               <div className="w-20 h-20 mb-4 rounded-full overflow-hidden border-2 border-[#717552] flex items-center justify-center bg-[#717552]">

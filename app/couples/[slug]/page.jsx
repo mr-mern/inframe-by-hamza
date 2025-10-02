@@ -1,9 +1,11 @@
+// Couples/[slug]/page.jsx
 import Image from "next/image";
 import SectionHeading from "@/app/components/SectionHeading/heading";
+import ClientGallery from "./ClientGallery"; // client-side component
 import { couples } from "@/app/data/couples";
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params; // 👈 yahan await
+  const { slug } = await params;
   const couple = couples.find((c) => c.slug === slug);
   return {
     title: couple ? couple.name : "Couple Not Found",
@@ -39,22 +41,16 @@ export default async function CoupleDetail({ params }) {
         <div className="absolute top-6 left-6 flex flex-col items-center gap-2">
           <div className="bg-[#e9e3db] text-[#172b1b] rounded-lg shadow-lg p-4 w-30 flex flex-col items-center">
             <span className="text-sm font-semibold uppercase">
-              {new Date(couple.date).toLocaleString("default", {
-                month: "short",
-              })}
+              {new Date(couple.date).toLocaleString("default", { month: "short" })}
             </span>
             <span className="text-4xl font-bold leading-none">
               {new Date(couple.date).getDate()}
             </span>
-            <span className="text-sm">
-              {new Date(couple.date).getFullYear()}
-            </span>
+            <span className="text-sm">{new Date(couple.date).getFullYear()}</span>
           </div>
 
           <div className="bg-[#717552] text-[#e9e3db] rounded-md shadow-md px-3 py-1 w-30 flex justify-center items-center">
-            <span className="text-xs font-medium uppercase tracking-wide">
-              Wedding Date
-            </span>
+            <span className="text-xs font-medium uppercase tracking-wide">Wedding Date</span>
           </div>
         </div>
 
@@ -76,22 +72,7 @@ export default async function CoupleDetail({ params }) {
           subtitle="A glimpse of our journey together captured in timeless moments."
           align="center"
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {couple.gallery.map((img, idx) => (
-            <div
-              key={idx}
-              className="group relative overflow-hidden rounded-xl shadow-lg"
-            >
-              <Image
-                src={img}
-                alt={couple.name}
-                width={500}
-                height={400}
-                className="rounded-xl object-cover w-full h-72 transform group-hover:scale-110 transition duration-700"
-              />
-            </div>
-          ))}
-        </div>
+        <ClientGallery images={couple.gallery} alt={couple.name} />
       </div>
     </section>
   );

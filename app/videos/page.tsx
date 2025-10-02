@@ -3,6 +3,26 @@
 import Image from "next/image";
 import Button from "../components/Button/button";
 import { PlayCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+// Intersection Observer Hook
+function useInView(threshold = 0.2) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, visible };
+}
 
 const videos = [
   {
@@ -29,22 +49,29 @@ const videos = [
 ];
 
 export default function VideosPage() {
+  const heroAnim = useInView(0.3);
+  const gridAnim = useInView(0.3);
+  const buttonAnim = useInView(0.3);
+
   return (
     <section className="bg-[#f5f3ef] text-[#172b1b] min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[90vh] flex items-center justify-center text-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/videosPage/banner.jpg"
-            alt="Videos Banner"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
+      <div className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
+        <Image
+          src="/images/videosPage/banner.jpg"
+          alt="Videos Banner"
+          fill
+          priority
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 px-6">
+
+        <div
+          ref={heroAnim.ref}
+          className={`relative z-10 px-6 transition-all duration-1000 ${
+            heroAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <h1 className="text-4xl md:text-6xl font-bold text-[#e9e3db]">
             Our Videos
           </h1>
@@ -56,11 +83,17 @@ export default function VideosPage() {
 
       {/* Videos Grid */}
       <div className="container mx-auto px-6 md:px-12 py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {videos.map((video) => (
+        <div
+          ref={gridAnim.ref}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-10"
+        >
+          {videos.map((video, idx) => (
             <div
               key={video.id}
-              className="bg-[#e9e3db] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group"
+              className={`bg-[#e9e3db] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl group cursor-pointer transform transition-all duration-700 ease-out ${
+                gridAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `${idx * 150}ms` }}
             >
               {/* Video Thumbnail with Overlay */}
               <div className="relative w-full h-56 md:h-64 overflow-hidden">
@@ -69,9 +102,6 @@ export default function VideosPage() {
                   alt={video.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 
-                         (max-width: 1200px) 50vw, 
-                         33vw"
                 />
                 <a
                   href={video.url}
@@ -96,12 +126,19 @@ export default function VideosPage() {
         </div>
 
         {/* View All Videos Button */}
-        <div className="mt-20 text-center">
-          <Button
-            href="/all-videos"
-            label="View All Videos"
-            className="text-[#e9e3db] py-3"
-          />
+        <div
+          ref={buttonAnim.ref}
+          className={`mt-20 text-center transition-all duration-1000 ${
+            buttonAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <div className="inline-block transform transition-transform duration-300 hover:scale-105">
+            <Button
+              href="/all-videos"
+              label="View All Videos"
+              className="text-[#e9e3db] py-3"
+            />
+          </div>
         </div>
       </div>
     </section>

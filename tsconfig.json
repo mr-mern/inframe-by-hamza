@@ -23,7 +23,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/ImageSlider/imageSlider.tsx", "app/couples/[slug]/page.jsx", "app/portfolios/[slug]/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/components/ImageSlider/imageSlider.tsx", "app/couples/[slug]/page.jsx", "app/portfolios/[slug]/page.jsx", "app/couples/[slug]/ClientGallery.jsx"],
   "exclude": ["node_modules"]
 }
 

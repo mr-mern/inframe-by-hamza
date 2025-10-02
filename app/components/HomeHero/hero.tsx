@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   const images = [
@@ -13,6 +14,7 @@ export default function Hero() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Auto slider
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -44,31 +46,26 @@ export default function Hero() {
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center font-[Lora] text-center text-white px-4 sm:px-6 md:px-8">
         {/* Heading */}
-        <h1 className="
-          text-2xl 
-          sm:text-4xl 
-          md:text-6xl 
-          font-light 
-          tracking-[0.2rem] 
-          sm:tracking-[0.5rem] 
-          md:tracking-[1rem]
-        ">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="text-2xl sm:text-4xl md:text-6xl font-light tracking-[0.2rem] sm:tracking-[0.5rem] md:tracking-[1rem]"
+        >
           HAMZA
-        </h1>
+        </motion.h1>
 
         {/* Subheading */}
-        <h2 className="
-          text-lg 
-          sm:text-3xl 
-          md:text-5xl 
-          mt-2 
-          font-light 
-          tracking-[0.2rem] 
-          sm:tracking-[0.5rem] 
-          md:tracking-[2rem]
-        ">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="text-lg sm:text-3xl md:text-5xl mt-2 font-light tracking-[0.2rem] sm:tracking-[0.5rem] md:tracking-[2rem]"
+        >
           PHOTOGRAPHY
-        </h2>
+        </motion.h2>
       </div>
     </section>
   );

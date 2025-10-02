@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Facebook, Instagram, Twitter, Mail, Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
 
 export default function Footer() {
@@ -67,22 +68,51 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-
         {/* Contact & QR Code */}
         <div>
           <h3 className="text-lg font-semibold mb-5 relative inline-block">
             Contact
             <span className="block w-12 h-[2px] bg-[#717552] mt-1"></span>
           </h3>
+
           <ul className="space-y-3 text-sm mb-6">
+            {/* Phone */}
             <li className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-[#717552]" /> +92 300 1234567
+              <Phone className="w-4 h-4 text-[#717552]" />
+              <a
+                href="tel:+923034578055"
+                className="hover:text-[#717552] transition"
+              >
+                0303 457 8055
+              </a>
             </li>
+
+            {/* WhatsApp */}
             <li className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[#717552]" /> hello@yourstudio.com
+              <FaWhatsapp className="w-4 h-4 text-[#717552]" />
+              <a
+                href="https://wa.me/923034578055"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#717552] transition"
+              >
+                +92 303 4578055
+              </a>
+            </li>
+
+            {/* Email */}
+            <li className="flex items-center gap-3">
+              <Mail className="w-4 h-4 text-[#717552]" />
+              <a
+                href="/contact"
+                className="hover:text-[#717552] transition"
+              >
+                hamza.safdar83@yahoo.com
+              </a>
             </li>
           </ul>
 
+          {/* QR Code */}
           <div className="flex flex-col items-center w-[110px]">
             <div className="relative w-[110px] h-[110px]">
               <Image
@@ -123,10 +153,24 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-[#717552]/40 mt-10 pt-5 text-center text-sm text-[#e9e3db]/70">
         © {new Date().getFullYear()}{" "}
-        <span className="font-bold text-[#e9e3db]/90 hover:text-[#717552] transition">
-          <Link href="/">InFrame by Hamza</Link>
-        </span>
+        <Link
+          href="/"
+          className="font-bold text-[#e9e3db]/90 hover:text-[#717552] transition-colors duration-300"
+        >
+          InFrame by Hamza
+        </Link>
         . All rights reserved.
+        <br />
+        <span className="mt-2 block text-xs text-[#e9e3db]/70">
+          Website crafted by{" "}
+          <Link
+            href="https://github.com/AbdulRehman646765"
+            target="_blank"
+            className="font-bold text-[#e9e3db]/90 hover:text-[#717552] transition-colors duration-300"
+          >
+            Abdul Rehman
+          </Link>
+        </span>
       </div>
     </footer>
   );
