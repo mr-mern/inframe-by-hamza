@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
+import Button from "@/app/components/Button/button";
 import { portfolios } from "@/app/data/portfolios";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation"; // <-- import useRouter
 import { useEffect, useRef, useState } from "react";
 
 // Intersection Observer Hook
@@ -26,6 +27,7 @@ function useInView(threshold = 0.2) {
 
 export default function PortfolioDetail() {
   const params = useParams();
+  const router = useRouter(); // <-- initialize router
   const slug = params.slug;
 
   const portfolio = portfolios.find((p) => p.slug === slug);
@@ -52,7 +54,9 @@ export default function PortfolioDetail() {
         <div className="absolute inset-0 bg-black/40"></div>
         <h1
           className={`relative text-4xl md:text-5xl font-bold text-white z-10 transform transition-all duration-1000 ease-out ${
-            bannerAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+            bannerAnim.visible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-20"
           }`}
         >
           {portfolio.category}
@@ -60,7 +64,7 @@ export default function PortfolioDetail() {
       </section>
 
       {/* Images */}
-      <section className="container mx-auto px-4 pb-20">
+      <section className="container mx-auto px-4 pt-20 pb-15">
         <div className="columns-1 sm:columns-2 md:columns-3 gap-4">
           {portfolio.images.map((img, idx) => {
             const { ref, visible } = imageRefs[idx];
@@ -87,6 +91,15 @@ export default function PortfolioDetail() {
           })}
         </div>
       </section>
+
+      {/* Go Back Button */}
+      <div className="text-center pb-10">
+        <Button
+          label="Go Back"
+          onClick={() => router.back()}
+          className="w-32 py-3"
+        />
+      </div>
     </main>
   );
 }
