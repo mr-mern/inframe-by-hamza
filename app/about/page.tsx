@@ -4,6 +4,7 @@ import Image from "next/image";
 import CTA from "../components/CTA/CTA";
 import SectionHeading from "../components/SectionHeading/heading";
 import { useEffect, useRef, useState } from "react";
+import Loader from "../components/Loader/Loader";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -45,6 +46,7 @@ export default function AboutUs() {
     <section className="w-full bg-[#e9e3db]">
       {/* Hero Section */}
       <div className="relative h-[90vh] w-full overflow-hidden">
+        <Loader />
         <Image
           src="/images/aboutUs/aboutBanner.jpg"
           alt="About Hero"

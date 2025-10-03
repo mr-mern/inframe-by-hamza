@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Mail, Phone } from "lucide-react";
+import { Instagram, Mail, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6"; // ✅ Threads icon import
 import Image from "next/image";
 
 export default function Footer() {
@@ -11,29 +12,30 @@ export default function Footer() {
     { href: "/ourServices", label: "Our Services" },
     { href: "/portfolios", label: "Portfolios" },
     { href: "/videos", label: "Videos" },
-    { href: "/packages", label: "Packages" },
+    { href: "/Testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact" },
   ];
 
   const socialLinks = [
-    {
-      icon: Facebook,
-      href: "https://facebook.com/yourpage",
-      label: "Facebook",
-    },
+    { icon: Mail, href: "/contact", label: "Email" },
     {
       icon: Instagram,
-      href: "https://instagram.com/yourpage",
+      href: "https://www.instagram.com/inframebyhamza?igsh=MXNoZTYwY2xnZjhucg==",
       label: "Instagram",
     },
-    { icon: Twitter, href: "https://twitter.com/yourpage", label: "Twitter" },
+    {
+      icon: FaThreads,
+      href: "https://www.threads.com/@inframebyhamza",
+      label: "Threads",
+    },
+    { icon: FaWhatsapp, href: "https://wa.me/923034578055", label: "WhatsApp" },
   ];
 
   return (
     <footer className="bg-[#172b1b] text-[#e9e3db] pt-12 pb-6">
       <div className="container mx-auto px-6 grid md:grid-cols-4 gap-12 md:gap-25">
         {/* Logo & Description */}
-        <div>
+        <div className="flex flex-col">
           <Link href="/">
             <Image
               src="/images/logos/footer-logo.png"
@@ -55,7 +57,7 @@ export default function Footer() {
             Quick Links
             <span className="block w-12 h-[2px] bg-[#717552] mt-1"></span>
           </h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-3 text-sm">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
@@ -68,6 +70,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
         {/* Contact & QR Code */}
         <div>
           <h3 className="text-lg font-semibold mb-5 relative inline-block">
@@ -75,7 +78,7 @@ export default function Footer() {
             <span className="block w-12 h-[2px] bg-[#717552] mt-1"></span>
           </h3>
 
-          <ul className="space-y-3 text-sm mb-6">
+          <ul className="space-y-3 text-sm mb-4">
             {/* Phone */}
             <li className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-[#717552]" />
@@ -87,19 +90,6 @@ export default function Footer() {
               </a>
             </li>
 
-            {/* WhatsApp */}
-            <li className="flex items-center gap-3">
-              <FaWhatsapp className="w-4 h-4 text-[#717552]" />
-              <a
-                href="https://wa.me/923034578055"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#717552] transition"
-              >
-                +92 303 4578055
-              </a>
-            </li>
-
             {/* Email */}
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-[#717552]" />
@@ -107,27 +97,36 @@ export default function Footer() {
                 href="/contact"
                 className="hover:text-[#717552] transition"
               >
-                hamza.safdar83@yahoo.com
+                safdarhamza31@gmail.com
               </a>
             </li>
           </ul>
 
-          {/* QR Code */}
+          {/* QR Code with Instagram Username */}
           <div className="flex flex-col items-center w-[110px]">
-            <div className="relative w-[110px] h-[110px]">
+            <Link
+              href="https://www.instagram.com/inframebyhamza?igsh=MXNoZTYwY2xnZjhucg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1 w-fit text-xs font-semibold rounded text-[#e9e3db] hover:text-[#717552] transition"
+            >
+              @inframebyhamza
+            </Link>
+            <div className="relative w-[110px] h-[110px] mb-2">
               <Image
                 src="/images/logos/qr-code-cream.png"
-                alt="QR Code"
+                alt="Instagram QR Code"
                 fill
                 className="object-contain"
               />
             </div>
-            <p className="mt-2 px-3 py-1 w-fit text-xs font-semibold rounded bg-[#e9e3db] text-[#172b1b]">
+            <p className="px-3 py-1 w-fit text-xs font-semibold rounded bg-[#e9e3db] text-[#172b1b] mb-1">
               Scan me
             </p>
           </div>
         </div>
 
+        {/* Follow Us */}
         <div>
           <h3 className="text-lg font-semibold mb-5 relative inline-block">
             Follow Us
@@ -140,7 +139,7 @@ export default function Footer() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 w-full md:w-50 rounded border border-[#717552] hover:bg-[#717552] transition-all duration-300 shadow-md"
+                className="flex items-center gap-3 p-3 w-full md:w-50 rounded border border-[#717552] hover:bg-[#717552] hover:text-[#e9e3db] transition-all duration-300 shadow-md"
               >
                 <Icon className="w-6 h-6" />
                 <span className="font-medium text-sm">{label}</span>

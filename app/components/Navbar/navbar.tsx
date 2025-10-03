@@ -15,7 +15,7 @@ export default function Navbar() {
     { href: "/ourServices", label: "Our Services" },
     { href: "/portfolios", label: "Portfolios" },
     { href: "/videos", label: "Videos" },
-    { href: "/packages", label: "Packages" },
+    { href: "/Testimonials", label: "Testimonials" },
   ];
 
   useEffect(() => {

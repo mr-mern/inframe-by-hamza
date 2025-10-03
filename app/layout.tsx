@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/navbar";
 import { Poppins, Lora, Great_Vibes } from "next/font/google";
 import Footer from "./components/Footer/footer";
 import Greeting from "./components/greeting";
+import Loader from "./components/Loader/Loader";
 
 // Default font (Poppins)
 const poppins = Poppins({
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${poppins.variable} ${lora.variable} ${greatVibes.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-white text-gray-900 font-sans">
+        {/* <Loader /> */}
         <Navbar />
         <Greeting />
         <main className="flex-1">{children}</main>

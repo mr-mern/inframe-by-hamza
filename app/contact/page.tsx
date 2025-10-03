@@ -79,7 +79,7 @@ export default function Contact() {
             <Mail size={40} className="mx-auto mb-4 text-[#172b1b] group-hover:text-[#e9e3db]" />
             <h3 className="text-xl font-semibold mb-2">Email Us</h3>
             <a href="/contact" className="text-[#172b1b]/80 group-hover:text-[#e9e3db]/80">
-              hamza.safdar83@yahoo.com
+              safdarhamza31@gmail.com
             </a>
           </div>
 
