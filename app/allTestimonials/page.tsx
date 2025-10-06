@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { User, Star, MessageSquareHeart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Button from "../components/Button/button";
+import LogoSlider from "../components/logoSlider";
+import { greenLogos, whiteLogos } from "../data/sliderLogos";
 
 // Default Reviews
 const defaultTestimonials = [
@@ -95,22 +97,23 @@ export default function AllTestimonialsPage() {
       ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
       : 0;
 
-  // animation observers (called once at top-level)
   const headingAnim = useInView();
-  const reviewsGridAnim = useInView(); // observe whole grid (we'll stagger per-item with CSS delay)
+  const reviewsGridAnim = useInView();
   const ratingAnim = useInView();
   const lightAnim = useInView();
 
   return (
     <>
       {/* Dark Section */}
-      <section className="py-20 bg-[#172b1b] text-[#e9e3db]">
+      <section className="pt-15 pb-10 bg-[#172b1b] text-[#e9e3db]">
         <div className="container mx-auto px-4">
           {/* Heading */}
           <h1
             ref={headingAnim.ref}
             className={`text-3xl font-bold text-center mb-12 transition-all duration-1000 ${
-              headingAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              headingAnim.visible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-6"
             }`}
           >
             All Reviews
@@ -128,9 +131,10 @@ export default function AllTestimonialsPage() {
                 <div
                   key={idx}
                   className={`bg-[#e9e3db] text-[#172b1b] rounded-lg shadow-lg p-6 flex flex-col items-center text-center transition-all duration-700 ease-out ${
-                    reviewsGridAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                    reviewsGridAnim.visible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-6"
                   }`}
-                  // stagger via inline delay (keeps design untouched)
                   style={{ transitionDelay: `${idx * 150}ms` }}
                 >
                   {/* Avatar */}
@@ -144,7 +148,9 @@ export default function AllTestimonialsPage() {
                   {/* Footer */}
                   <div className="bg-[#172b1b] text-[#e9e3db] rounded-lg px-4 py-2 mt-auto w-full flex flex-col items-center justify-center">
                     <h3 className="font-semibold text-lg">{review.name}</h3>
-                    <span className="text-[#e9e3db]/80 text-sm">{review.role}</span>
+                    <span className="text-[#e9e3db]/80 text-sm">
+                      {review.role}
+                    </span>
                     <div className="flex mt-2">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <StarIcon key={star} filled={star <= review.rating} />
@@ -161,16 +167,23 @@ export default function AllTestimonialsPage() {
             <div
               ref={ratingAnim.ref}
               className={`text-center mb-12 transition-all duration-1000 ${
-                ratingAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                ratingAnim.visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
               }`}
             >
               <p className="text-lg font-medium">Overall Rating</p>
               <div className="flex justify-center mt-2">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <StarIcon key={star} filled={star <= Math.round(averageRating)} />
+                  <StarIcon
+                    key={star}
+                    filled={star <= Math.round(averageRating)}
+                  />
                 ))}
               </div>
-              <p className="text-sm mt-1">{averageRating.toFixed(1)} / 5 ({reviews.length} reviews)</p>
+              <p className="text-sm mt-1">
+                {averageRating.toFixed(1)} / 5 ({reviews.length} reviews)
+              </p>
             </div>
           )}
 
@@ -184,12 +197,16 @@ export default function AllTestimonialsPage() {
               }`}
               disabled={currentPage === 1}
             />
-            <span className="self-center">Page {currentPage} of {totalPages}</span>
+            <span className="self-center">
+              Page {currentPage} of {totalPages}
+            </span>
             <Button
               label="Next"
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               className={`w-28 py-2 bg-[#e9e3db] text-[#172b1b] font-medium hover:bg-[#717552] hover:text-[#e9e3db] ${
-                currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
+                currentPage === totalPages
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
               }`}
               disabled={currentPage === totalPages}
             />
@@ -204,14 +221,17 @@ export default function AllTestimonialsPage() {
             />
           </div>
         </div>
+        <LogoSlider logos={whiteLogos} className="mt-10" />
       </section>
 
       {/* Light Section */}
-      <section className="py-16 bg-[#e9e3db] text-[#172b1b]">
+      <section className="pt-16 pb-10 bg-[#e9e3db] text-[#172b1b]">
         <div
           ref={lightAnim.ref}
           className={`container mx-auto px-6 md:px-12 text-center transition-all duration-1000 ${
-            lightAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            lightAnim.visible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
           }`}
         >
           <h2 className="text-2xl font-bold mb-6">Why Our Clients Love Us</h2>
@@ -220,19 +240,25 @@ export default function AllTestimonialsPage() {
             <div className="p-6 rounded-lg shadow-md bg-white">
               <Star className="w-8 h-8 text-yellow-500 mx-auto mb-3" />
               <h3 className="font-semibold text-lg">Trusted Quality</h3>
-              <p className="text-sm text-gray-600 mt-2">Delivering premium quality services with consistent 5⭐ reviews.</p>
+              <p className="text-sm text-gray-600 mt-2">
+                Delivering premium quality services with consistent 5⭐ reviews.
+              </p>
             </div>
 
             <div className="p-6 rounded-lg shadow-md bg-white">
               <MessageSquareHeart className="w-8 h-8 text-pink-600 mx-auto mb-3" />
               <h3 className="font-semibold text-lg">Happy Clients</h3>
-              <p className="text-sm text-gray-600 mt-2">Thousands of smiles captured & memories cherished forever.</p>
+              <p className="text-sm text-gray-600 mt-2">
+                Thousands of smiles captured & memories cherished forever.
+              </p>
             </div>
 
             <div className="p-6 rounded-lg shadow-md bg-white">
               <User className="w-8 h-8 text-green-600 mx-auto mb-3" />
               <h3 className="font-semibold text-lg">Personalized Service</h3>
-              <p className="text-sm text-gray-600 mt-2">Every client is unique & we tailor our work for your story.</p>
+              <p className="text-sm text-gray-600 mt-2">
+                Every client is unique & we tailor our work for your story.
+              </p>
             </div>
           </div>
 
@@ -242,6 +268,7 @@ export default function AllTestimonialsPage() {
             className="add-review px-6 py-3 bg-[#717552] text-[#e9e3db]"
           />
         </div>
+        <LogoSlider logos={greenLogos} className="mt-12" />
       </section>
     </>
   );

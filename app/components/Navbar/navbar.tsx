@@ -122,36 +122,39 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden border-t bg-[#e9e3db] border-[#717552]/20"
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="md:hidden border-t border-[#717552]/20 bg-[#e9e3db] rounded-b-3xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] overflow-hidden"
           >
-            <div className="px-4 py-4 flex flex-col gap-3">
+            <div className="flex flex-col items-center py-4 px-4 space-y-2">
               {nav.map((item, i) => (
                 <motion.div
                   key={item.href}
-                  initial={{ opacity: 0, x: -15 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.07 }}
+                  className="w-full"
                 >
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="py-2 text-[#172b1b]/80 hover:text-[#717552] transition-colors"
+                    className="block py-1 rounded-lg text-[#172b1b] text-[16px] tracking-wide hover:bg-[#172b1b]/10 hover:text-[#717552] transition-all duration-300"
                   >
                     {item.label}
                   </Link>
                 </motion.div>
               ))}
 
+              {/* Book Now Button */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.4 }}
+                className="w-full pt-4"
               >
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="mt-2 py-2 font-semibold bg-[#172b1b] text-[#e9e3db] text-center rounded-lg hover:bg-[#717552] transition-colors"
+                  className="block text-center py-2 bg-[#172b1b] text-[#e9e3db] font-semibold rounded-sm hover:bg-[#717552] hover:text-[#e9e3db] transition-all duration-300"
                 >
                   Book Now
                 </Link>

@@ -5,6 +5,8 @@ import { Poppins, Lora, Great_Vibes } from "next/font/google";
 import Footer from "./components/Footer/footer";
 import Greeting from "./components/greeting";
 import Loader from "./components/Loader/Loader";
+import Script from "next/script";
+import BackToTopButton from "./components/BackToTopButton";
 
 // Default font (Poppins)
 const poppins = Poppins({
@@ -40,11 +42,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${poppins.variable} ${lora.variable} ${greatVibes.variable}`}
     >
+      <head>
+        {/* ✅ Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-CB4W4FFLLF"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CB4W4FFLLF');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen flex flex-col bg-white text-gray-900 font-sans">
         {/* <Loader /> */}
         <Navbar />
         <Greeting />
         <main className="flex-1">{children}</main>
+        <BackToTopButton />
         <Footer />
       </body>
     </html>

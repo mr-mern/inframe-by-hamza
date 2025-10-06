@@ -4,6 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import { User } from "lucide-react";
 import SectionHeading from "../components/SectionHeading/heading";
 import Button from "../components/Button/button";
+import LogoSlider from "../components/logoSlider";
+import { whiteLogos } from "../data/sliderLogos";
+import Image from "next/image";
 
 const defaultTestimonials = [
   {
@@ -129,10 +132,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-20 bg-[#e9e3db] overflow-hidden"
-    >
+    <section ref={sectionRef} className="py-20 bg-[#e9e3db] overflow-hidden">
       <div
         className={`container mx-auto px-4 transition-all duration-1000 ease-out
         ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
@@ -193,7 +193,7 @@ export default function Testimonials() {
         <div className="mt-20 max-w-5xl mx-auto bg-gradient-to-r from-[#172b1b] to-[#1f3525] rounded-2xl shadow-xl overflow-hidden">
           <div className="grid md:grid-cols-2">
             {/* Left Info */}
-            <div className="p-10 flex flex-col justify-center bg-[#717552]/20">
+            <div className="relative p-10 flex flex-col justify-center bg-[#717552]/20">
               <h2 className="text-3xl font-bold text-[#e9e3db] mb-4">
                 We Value Your Feedback
               </h2>
@@ -203,6 +203,15 @@ export default function Testimonials() {
               </p>
               <div className="flex gap-2 text-yellow-400 text-3xl">
                 ★ ★ ★ ★ ★
+              </div>
+              <div className="absolute bottom-10 right-10">
+                <Image
+                  src="/images/logos/footer-logo.png"
+                  alt="Footer Logo"
+                  width={110}
+                  height={30}
+                  className="object-contain"
+                />
               </div>
             </div>
 

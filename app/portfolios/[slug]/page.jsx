@@ -3,8 +3,11 @@
 import Button from "@/app/components/Button/button";
 import { portfolios } from "@/app/data/portfolios";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation"; // <-- import useRouter
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { greenLogos } from "@/app/data/sliderLogos";
+import LogoSlider from "@/app/components/logoSlider";
+
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -62,6 +65,7 @@ export default function PortfolioDetail() {
           {portfolio.category}
         </h1>
       </section>
+      <LogoSlider logos={greenLogos} width={100} height={80} className="mt-10"/>
 
       {/* Images */}
       <section className="container mx-auto px-4 pt-20 pb-15">

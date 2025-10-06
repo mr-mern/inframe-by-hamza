@@ -7,7 +7,7 @@ export default function Loader() {
   const [videoEnded, setVideoEnded] = useState(false);
 
   return (
-    <div className="absolute inset-0 z-10 flex items-center justify-center">
+    <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40">
       <AnimatePresence mode="wait">
         {!videoEnded ? (
           <motion.video
@@ -19,7 +19,7 @@ export default function Loader() {
             onEnded={() => setVideoEnded(true)}
             className="w-300 h-300 object-contain"
             initial={{ opacity: 0, scale: 0.2 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8 }}
           />
         ) : (

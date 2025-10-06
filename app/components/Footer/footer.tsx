@@ -84,7 +84,7 @@ export default function Footer() {
               <Phone className="w-4 h-4 text-[#717552]" />
               <a
                 href="tel:+923034578055"
-                className="hover:text-[#717552] transition"
+                className="hover:text-[#717552] transition font-medium"
               >
                 0303 457 8055
               </a>
@@ -95,7 +95,7 @@ export default function Footer() {
               <Mail className="w-4 h-4 text-[#717552]" />
               <a
                 href="/contact"
-                className="hover:text-[#717552] transition"
+                className="hover:text-[#717552] transition font-medium"
               >
                 safdarhamza31@gmail.com
               </a>

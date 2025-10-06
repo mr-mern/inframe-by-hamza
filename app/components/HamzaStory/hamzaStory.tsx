@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { Quote, Mail, Phone } from "lucide-react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { Quote, Phone } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
+import LogoSlider from "../logoSlider";
+import { greenLogos } from "@/app/data/sliderLogos";
 
 export default function HamzaStory() {
   return (
-    <section className="relative py-24 bg-[#f5f1eb]">
+    <section className="relative pt-24 pb-10 bg-[#f5f1eb]">
       <div className="container mx-auto px-6 max-w-5xl relative">
         <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
           {/* Polaroid Style Image */}
@@ -87,6 +89,7 @@ export default function HamzaStory() {
           </motion.div>
         </div>
       </div>
+      <LogoSlider logos={greenLogos} className="mt-10" />
     </section>
   );
 }

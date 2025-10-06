@@ -5,6 +5,7 @@ import ImageSlider from "./components/ImageSlider/imageSlider";
 import HamzaStory from "./components/HamzaStory/hamzaStory";
 import CTA from "./components/CTA/CTA";
 import Testimonials from "./Testimonials/page";
+import LogoSlider from "./components/logoSlider";
 
 export default function Home() {
   return (

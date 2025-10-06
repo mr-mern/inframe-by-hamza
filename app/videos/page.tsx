@@ -4,6 +4,9 @@ import Image from "next/image";
 import Button from "../components/Button/button";
 import { PlayCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import Loader from "../components/Loader/Loader";
+import LogoSlider from "../components/logoSlider";
+import { greenLogos } from "../data/sliderLogos";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -57,6 +60,7 @@ export default function VideosPage() {
     <section className="bg-[#f5f3ef] text-[#172b1b] min-h-screen">
       {/* Hero Section */}
       <div className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
+        <Loader />
         <Image
           src="/images/videosPage/banner.jpg"
           alt="Videos Banner"
@@ -69,7 +73,9 @@ export default function VideosPage() {
         <div
           ref={heroAnim.ref}
           className={`relative z-10 px-6 transition-all duration-1000 ${
-            heroAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            heroAnim.visible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
           }`}
         >
           <h1 className="text-4xl md:text-6xl font-bold text-[#e9e3db]">
@@ -80,6 +86,12 @@ export default function VideosPage() {
           </p>
         </div>
       </div>
+      <LogoSlider
+        logos={greenLogos}
+        width={100}
+        height={80}
+        className="mt-10"
+      />
 
       {/* Videos Grid */}
       <div className="container mx-auto px-6 md:px-12 py-20">
@@ -91,7 +103,9 @@ export default function VideosPage() {
             <div
               key={video.id}
               className={`bg-[#e9e3db] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl group cursor-pointer transform transition-all duration-700 ease-out ${
-                gridAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                gridAnim.visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
@@ -129,7 +143,9 @@ export default function VideosPage() {
         <div
           ref={buttonAnim.ref}
           className={`mt-20 text-center transition-all duration-1000 ${
-            buttonAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            buttonAnim.visible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
           }`}
         >
           <div className="inline-block transform transition-transform duration-300 hover:scale-105">

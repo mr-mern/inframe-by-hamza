@@ -5,6 +5,7 @@ import Link from "next/link";
 import SectionHeading from "../components/SectionHeading/heading";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import Loader from "../components/Loader/Loader";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -34,6 +35,7 @@ export default function PortfolioPage() {
     <main className="bg-[#e9e3db]">
       {/* Hero Banner */}
       <section className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
+        <Loader />
         <Image
           src="/images/portfolio/banner.jpg"
           alt="About Hero"
@@ -45,7 +47,9 @@ export default function PortfolioPage() {
         <h1
           ref={heroAnim.ref}
           className={`relative text-4xl md:text-5xl font-bold text-white z-10 transition-all duration-1000 ${
-            heroAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            heroAnim.visible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
           }`}
         >
           Our Portfolio
@@ -68,7 +72,9 @@ export default function PortfolioPage() {
                 key={idx}
                 href={`/portfolios/${portfolio.slug}`}
                 className={`group rounded-2xl overflow-hidden shadow-lg cursor-pointer border border-[#717552]/40 flex flex-col transform transition-all duration-700 ease-out ${
-                  gridAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  gridAnim.visible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${idx * 150}ms` }} // staggered effect
               >
@@ -95,7 +101,9 @@ export default function PortfolioPage() {
           <div
             ref={buttonAnim.ref}
             className={`text-center transition-all duration-1000 ${
-              buttonAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              buttonAnim.visible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             <div className="inline-block transform transition-transform duration-300 hover:scale-105">

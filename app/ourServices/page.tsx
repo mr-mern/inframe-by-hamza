@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Camera, Heart, Calendar, Briefcase } from "lucide-react";
 import CTA from "../components/CTA/CTA";
 import { useEffect, useRef, useState } from "react";
+import Loader from "../components/Loader/Loader";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -62,6 +63,7 @@ export default function OurServices() {
     <>
       {/* Hero Section */}
       <section className="relative w-full h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-center justify-center text-center">
+        <Loader />
         <Image
           src="/images/ourServices/banner.jpg"
           alt="Photography Services"
@@ -82,7 +84,8 @@ export default function OurServices() {
             Our Services
           </h1>
           <p className="text-[#e9e3db]/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10">
-            Professional photography services to capture every moment, emotion, and memory.
+            Professional photography services to capture every moment, emotion,
+            and memory.
           </p>
         </div>
       </section>
@@ -96,9 +99,10 @@ export default function OurServices() {
           <div
             key={idx}
             className={`bg-[#e9e3db] hover:bg-[#172b1b] rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl cursor-pointer group transform transition-all duration-700 ease-out ${
-  cardsAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-}`}
-
+              cardsAnim.visible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
             style={{ transitionDelay: `${idx * 150}ms` }}
           >
             {/* Icon */}
@@ -123,7 +127,9 @@ export default function OurServices() {
       <div
         ref={ctaAnim.ref}
         className={`transition-all duration-1000 ${
-          ctaAnim.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          ctaAnim.visible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
         }`}
       >
         <CTA
