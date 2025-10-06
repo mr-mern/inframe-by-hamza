@@ -3,16 +3,12 @@ import Image from "next/image";
 
 interface LogoSliderProps {
   logos: string[];
-  width?: number;
-  height?: number;
   speed?: "slow" | "normal" | "fast";
   className?: string;
 }
 
 export default function LogoSlider({
   logos,
-  width = 120,
-  height = 60,
   speed = "normal",
   className = "",
 }: LogoSliderProps) {
@@ -28,14 +24,18 @@ export default function LogoSlider({
       <div className="flex w-max">
         <div className={`flex ${speedClass}`}>
           {[...logos, ...logos].map((logo, i) => (
-            <div key={i} className="mx-8 flex-shrink-0">
-              <Image
-                src={logo}
-                alt="logo"
-                width={width}
-                height={height}
-                className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-              />
+            <div
+              key={i}
+              className="mx-6 sm:mx-8 flex-shrink-0 flex items-center justify-center"
+            >
+              <div className="relative w-[70px] h-[35px] sm:w-[100px] sm:h-[50px] md:w-[120px] md:h-[60px]">
+                <Image
+                  src={logo}
+                  alt="logo"
+                  fill
+                  className="object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
             </div>
           ))}
         </div>

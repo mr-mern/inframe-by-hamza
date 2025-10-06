@@ -29,7 +29,7 @@ export default function BackToTopButton() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 40 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-[#172b1b] text-[#e9e3db] shadow-[0_0_20px_rgba(23,43,27,0.4)] hover:bg-[#717552] hover:shadow-[0_0_30px_rgba(113,117,82,0.5)] transition-all duration-300 border border-[#e9e3db]/30"
+          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-[#172b1b] text-[#e9e3db] shadow-[0_0_20px_rgba(23,43,27,0.4)] hover:bg-[#717552] hover:shadow-[0_0_30px_rgba(113,117,82,0.5)] transition-all duration-300 border border-[#e9e3db]/30 cursor-pointer"
           aria-label="Back to top"
         >
           <ArrowUp size={20} />
