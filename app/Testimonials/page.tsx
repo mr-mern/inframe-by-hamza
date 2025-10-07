@@ -4,8 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { User } from "lucide-react";
 import SectionHeading from "../components/SectionHeading/heading";
 import Button from "../components/Button/button";
-import LogoSlider from "../components/logoSlider";
-import { whiteLogos } from "../data/sliderLogos";
 import Image from "next/image";
 
 const defaultTestimonials = [
@@ -150,7 +148,7 @@ export default function Testimonials() {
                 transition-all duration-700 ease-out
                 ${inView ? "opacity-100 scale-100" : "opacity-0 scale-90"}
               `}
-              style={{ transitionDelay: `${idx * 150}ms` }} // stagger effect
+              style={{ transitionDelay: `${idx * 150}ms` }}
             >
               {/* User Icon */}
               <div className="w-20 h-20 mb-4 rounded-full overflow-hidden border-2 border-[#717552] flex items-center justify-center bg-[#717552]">

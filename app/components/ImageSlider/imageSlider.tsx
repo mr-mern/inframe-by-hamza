@@ -12,12 +12,12 @@ import { couples } from "@/app/data/couples";
 export default function ImageSlider() {
   return (
     <section className="relative min-h-[90vh] sm:min-h-screen w-full overflow-hidden bg-[#0d0d0c] flex flex-col justify-center items-center">
-      {/* ✨ Background Layers */}
+      {/* Background Layers */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d0c] via-[#1b1c18] to-[#0d0d0c]" />
       <div className="absolute top-1/2 left-1/2 w-[600px] sm:w-[900px] h-[600px] sm:h-[900px] bg-[#717552]/15 blur-[150px] sm:blur-[180px] rounded-full -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute top-0 left-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#e9e3db]/5 blur-[150px] sm:blur-[200px] rounded-full opacity-70" />
 
-      {/* 💍 Heading */}
+      {/* Heading */}
       <div className="relative z-10 text-center my-12 sm:my-16 px-4">
         <h2 className="relative inline-block text-3xl sm:text-5xl md:text-6xl font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#e9e3db] via-[#f5e6c4] to-[#717552] animate-goldFlow drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] leading-tight">
           Featured Love Stories
@@ -28,7 +28,7 @@ export default function ImageSlider() {
         </p>
       </div>
 
-      {/* 🌸 Swiper Section */}
+      {/*  Swiper Section */}
       <div className="relative w-full max-w-6xl z-10 px-4 sm:px-6 md:px-0">
         <Swiper
           modules={[Navigation, Autoplay, EffectFade]}
@@ -50,7 +50,7 @@ export default function ImageSlider() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent" />
                 <div className="absolute bottom-0 left-1/2 w-[250px] sm:w-[400px] h-[120px] sm:h-[200px] bg-[#717552]/30 blur-[100px] sm:blur-[120px] rounded-full -translate-x-1/2" />
 
-                {/* 💎 Info Card */}
+                {/*  Info Card */}
                 <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-center w-[92%] sm:w-[70%] md:w-[50%] backdrop-blur-xl bg-white/10 p-5 sm:p-8 rounded-xl sm:rounded-2xl border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_60px_rgba(113,117,82,0.5)] transition-all duration-700">
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#e9e3db] mb-2 tracking-wide">
                     {couple.name}
@@ -71,7 +71,6 @@ export default function ImageSlider() {
         </Swiper>
       </div>
 
-      {/* 🎨 Styling */}
       <style jsx global>{`
         .swiper-button-next,
         .swiper-button-prev {
@@ -105,14 +104,14 @@ export default function ImageSlider() {
             bottom: 10px !important;
           }
           .swiper-button-prev {
-            left: 30% !important;
+            left: 10% !important;
           }
           .swiper-button-next {
-            right: 30% !important;
+            right: 10% !important;
           }
         }
 
-        /* ✨ Gold gradient shimmer animation */
+        /*  Gold gradient shimmer animation */
         @keyframes goldFlow {
           0% {
             background-position: 0% 50%;

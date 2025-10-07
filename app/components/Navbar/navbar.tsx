@@ -28,7 +28,7 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "bg-[#e9e3db]/80 backdrop-blur border-[#717552]/20 shadow-md"
+          ? "bg-[#e9e3db]/70 backdrop-blur border-[#717552]/20 shadow-md"
           : "bg-[#e9e3db] border-[#717552]/20"
       }`}
     >
@@ -61,7 +61,7 @@ export default function Navbar() {
             >
               <Link
                 href={item.href}
-                className="text-[#172b1b] hover:text-[#717552] transition-colors font-medium"
+                className="text-[#172b1b] hover:text-[#717552] transition-colors "
               >
                 {item.label}
               </Link>

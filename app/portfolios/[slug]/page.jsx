@@ -5,11 +5,8 @@ import { portfolios } from "@/app/data/portfolios";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { greenLogos } from "@/app/data/sliderLogos";
-import LogoSlider from "@/app/components/logoSlider";
 
 
-// Intersection Observer Hook
 function useInView(threshold = 0.2) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -30,7 +27,7 @@ function useInView(threshold = 0.2) {
 
 export default function PortfolioDetail() {
   const params = useParams();
-  const router = useRouter(); // <-- initialize router
+  const router = useRouter();
   const slug = params.slug;
 
   const portfolio = portfolios.find((p) => p.slug === slug);
@@ -65,18 +62,17 @@ export default function PortfolioDetail() {
           {portfolio.category}
         </h1>
       </section>
-      <LogoSlider logos={greenLogos} width={100} height={80} className="mt-10"/>
 
       {/* Images */}
-      <section className="container mx-auto px-4 pt-20 pb-15">
-        <div className="columns-1 sm:columns-2 md:columns-3 gap-4">
+      <section className="container mx-auto pt-20 pb-15">
+        <div className="columns-1 sm:columns-2 md:columns-3 gap-0">
           {portfolio.images.map((img, idx) => {
             const { ref, visible } = imageRefs[idx];
             return (
               <div
                 key={idx}
                 ref={ref}
-                className={`mb-4 break-inside-avoid rounded-lg overflow-hidden shadow-lg group transform transition-all duration-700 ease-out ${
+                className={`break-inside-avoid overflow-hidden shadow-lg group transform transition-all duration-700 ease-out ${
                   visible
                     ? "opacity-100 translate-y-0 scale-100"
                     : "opacity-0 translate-y-10 scale-95"

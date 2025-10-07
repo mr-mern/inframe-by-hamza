@@ -5,8 +5,6 @@ import Button from "../components/Button/button";
 import { PlayCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Loader from "../components/Loader/Loader";
-import LogoSlider from "../components/logoSlider";
-import { greenLogos } from "../data/sliderLogos";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -86,12 +84,6 @@ export default function VideosPage() {
           </p>
         </div>
       </div>
-      <LogoSlider
-        logos={greenLogos}
-        width={100}
-        height={80}
-        className="mt-10"
-      />
 
       {/* Videos Grid */}
       <div className="container mx-auto px-6 md:px-12 py-20">

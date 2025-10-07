@@ -4,8 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { User, Star, MessageSquareHeart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Button from "../components/Button/button";
-import LogoSlider from "../components/logoSlider";
-import { greenLogos, whiteLogos } from "../data/sliderLogos";
 
 // Default Reviews
 const defaultTestimonials = [
@@ -221,7 +219,6 @@ export default function AllTestimonialsPage() {
             />
           </div>
         </div>
-        <LogoSlider logos={whiteLogos} className="mt-10" />
       </section>
 
       {/* Light Section */}
@@ -268,7 +265,6 @@ export default function AllTestimonialsPage() {
             className="add-review px-6 py-3 bg-[#717552] text-[#e9e3db]"
           />
         </div>
-        <LogoSlider logos={greenLogos} className="mt-12" />
       </section>
     </>
   );

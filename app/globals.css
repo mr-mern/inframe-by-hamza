@@ -51,6 +51,13 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Symphony";
+  src: url("/fonts/Symphony.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .add-review:hover {
   background-color: #172b1b;
 }

@@ -1,16 +1,15 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import Loader from "../Loader/Loader";
 
 export default function Hero() {
   const images = [
-    "/images/hero-banner/banner (1).jpg",
-    "/images/hero-banner/banner (2).jpg",
-    "/images/hero-banner/banner (3).jpg",
-    "/images/hero-banner/banner (4).jpg",
-    "/images/hero-banner/banner (5).jpg",
+    "/images/hero-banner/banner-1.jpg",
+    "/images/hero-banner/banner-2.jpg",
+    "/images/hero-banner/banner-3.jpg",
+    "/images/hero-banner/banner-4.jpg",
+    "/images/hero-banner/banner-5.jpg",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

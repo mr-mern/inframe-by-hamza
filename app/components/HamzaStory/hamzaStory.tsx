@@ -4,8 +4,7 @@ import Image from "next/image";
 import { Quote, Phone } from "lucide-react";
 import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
-import LogoSlider from "../logoSlider";
-import { greenLogos } from "@/app/data/sliderLogos";
+
 
 export default function HamzaStory() {
   return (
@@ -89,7 +88,6 @@ export default function HamzaStory() {
           </motion.div>
         </div>
       </div>
-      <LogoSlider logos={greenLogos} className="mt-10" />
     </section>
   );
 }

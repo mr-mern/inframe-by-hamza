@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar/navbar";
 import { Poppins, Lora, Great_Vibes } from "next/font/google";
 import Footer from "./components/Footer/footer";
 import Greeting from "./components/greeting";
-import Loader from "./components/Loader/Loader";
 import Script from "next/script";
 import BackToTopButton from "./components/BackToTopButton";
 
@@ -16,20 +15,6 @@ const poppins = Poppins({
   display: "swap",
 });
 
-// Secondary fonts (use manually via className)
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-lora",
-  display: "swap",
-});
-
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-great-vibes",
-  display: "swap",
-});
 
 export const metadata = {
   title: "InFrame by Hamza",
@@ -40,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lora.variable} ${greatVibes.variable}`}
+      className={`${poppins.variable}`}
     >
       <head>
         {/* ✅ Google Analytics */}
@@ -56,9 +41,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-CB4W4FFLLF');
           `}
         </Script>
+        <link rel="icon" type="image/png" href="/favicon.jpg" />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-gray-900 font-sans">
-        {/* <Loader /> */}
         <Navbar />
         <Greeting />
         <main className="flex-1">{children}</main>

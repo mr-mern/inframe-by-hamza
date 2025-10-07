@@ -2,8 +2,7 @@
 
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
-import LogoSlider from "../components/logoSlider";
-import { greenLogos } from "../data/sliderLogos";
+
 
 // Intersection Observer Hook
 function useInView<T extends HTMLElement = HTMLDivElement>(threshold = 0.2) {
@@ -72,7 +71,6 @@ export default function Contact() {
           </p>
         </div>
       </div>
-      <LogoSlider logos={greenLogos} className="mt-10" />
 
       {/* Contact Info */}
       <div
@@ -220,7 +218,6 @@ export default function Contact() {
 
         </div>
       </div>
-          <LogoSlider logos={greenLogos} className="pb-10" />
     </section>
   );
 }

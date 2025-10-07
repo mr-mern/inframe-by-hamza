@@ -76,9 +76,9 @@ export default function PortfolioPage() {
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
-                style={{ transitionDelay: `${idx * 150}ms` }} // staggered effect
+                style={{ transitionDelay: `${idx * 150}ms` }}
               >
-                {/* Title outside image */}
+                {/* Title outside image - NO animation here */}
                 <div className="bg-[#172b1b] py-3 px-4 text-center">
                   <span className="text-lg md:text-xl font-semibold font-[Poppins] text-[#e9e3db]">
                     {portfolio.category}

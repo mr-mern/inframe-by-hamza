@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Instagram, Mail, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { FaThreads } from "react-icons/fa6"; // ✅ Threads icon import
+import { FaThreads } from "react-icons/fa6";
 import Image from "next/image";
 
 export default function Footer() {
@@ -102,7 +102,7 @@ export default function Footer() {
             </li>
           </ul>
 
-          {/* QR Code with Instagram Username */}
+          {/* QR Code */}
           <div className="flex flex-col items-center w-[110px]">
             <Link
               href="https://www.instagram.com/inframebyhamza?igsh=MXNoZTYwY2xnZjhucg=="
