@@ -4,7 +4,7 @@ import Image from "next/image";
 import CTA from "../components/CTA/CTA";
 import SectionHeading from "../components/SectionHeading/heading";
 import { useEffect, useRef, useState } from "react";
-import Loader from "../components/Loader/Loader";
+import LogoAnimate from "../components/LogoAnimate";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -45,8 +45,8 @@ export default function AboutUs() {
   return (
     <section className="w-full bg-[#e9e3db]">
       {/* Hero Section */}
-      <div className="relative h-[90vh] w-full overflow-hidden">
-        <Loader />
+      <LogoAnimate />
+      <div id="hero" className="relative h-[90vh] w-full overflow-hidden">
         <Image
           src="/images/aboutUs/aboutBanner.jpg"
           alt="About Hero"
@@ -55,7 +55,7 @@ export default function AboutUs() {
         />
         <div
           ref={heroAnim.ref}
-          className={`absolute inset-0 bg-[#172b1b]/40 flex flex-col justify-center items-center text-center px-6 transition-all duration-1000 ${
+          className={`absolute inset-0 bg-[#172b1b]/50 flex flex-col justify-center items-center text-center px-6 transition-all duration-1000 ${
             heroAnim.visible
               ? "opacity-100 translate-x-0"
               : "opacity-0 translate-x-10"
@@ -64,10 +64,10 @@ export default function AboutUs() {
           <h1 className="text-5xl md:text-6xl font-bold text-[#172b1b] mb-4">
             Capturing Moments
           </h1>
-          <p className="text-[#717552] text-lg md:text-xl max-w-2xl">
+          {/* <p className="text-[#717552] text-lg md:text-xl max-w-2xl">
             Photography is my passion. Every frame tells a story, every shot
             freezes a memory.
-          </p>
+          </p> */}
         </div>
       </div>
 

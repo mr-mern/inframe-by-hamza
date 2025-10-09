@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export default function HamzaStory() {
   return (
-    <section className="relative pt-24 pb-10 bg-[#f5f1eb]">
+    <section className="relative py-24 bg-[#f5f1eb]">
       <div className="container mx-auto px-6 max-w-5xl relative">
         <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
           {/* Polaroid Style Image */}
@@ -43,7 +43,7 @@ export default function HamzaStory() {
             <Quote className="w-10 h-10 text-[#717552] opacity-50 mb-4 rotate-180" />
 
             {/* Story */}
-            <p className="text-lg md:text-xl text-[#172b1b]/80 italic mb-6">
+            <p className="text-md md:text-lg text-[#172b1b]/70 italic mb-6">
               We had the most magical experience! Every moment was captured with
               so much love and detail. These pictures will always remind us of
               the best days of our lives.

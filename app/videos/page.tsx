@@ -4,7 +4,7 @@ import Image from "next/image";
 import Button from "../components/Button/button";
 import { PlayCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import Loader from "../components/Loader/Loader";
+import LogoAnimate from "../components/LogoAnimate";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -57,8 +57,9 @@ export default function VideosPage() {
   return (
     <section className="bg-[#f5f3ef] text-[#172b1b] min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
-        <Loader />
+      <LogoAnimate />
+
+      <div id="hero" className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
         <Image
           src="/images/videosPage/banner.jpg"
           alt="Videos Banner"
@@ -66,7 +67,7 @@ export default function VideosPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/50" />
 
         <div
           ref={heroAnim.ref}
@@ -79,9 +80,9 @@ export default function VideosPage() {
           <h1 className="text-4xl md:text-6xl font-bold text-[#e9e3db]">
             Our Videos
           </h1>
-          <p className="mt-4 text-lg md:text-xl text-[#e9e3db]/90 max-w-2xl mx-auto">
+          {/* <p className="mt-4 text-lg md:text-xl text-[#e9e3db]/90 max-w-2xl mx-auto">
             Experience our work through stunning video highlights.
-          </p>
+          </p> */}
         </div>
       </div>
 

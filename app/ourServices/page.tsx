@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Camera, Heart, Calendar, Briefcase } from "lucide-react";
 import CTA from "../components/CTA/CTA";
 import { useEffect, useRef, useState } from "react";
-import Loader from "../components/Loader/Loader";
+import LogoAnimate from "../components/LogoAnimate";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -62,8 +62,9 @@ export default function OurServices() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative w-full h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-center justify-center text-center">
-        <Loader />
+      <LogoAnimate />
+
+      <section id="hero" className="relative w-full h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-center justify-center text-center">
         <Image
           src="/images/ourServices/banner.jpg"
           alt="Photography Services"
@@ -71,7 +72,7 @@ export default function OurServices() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/50" />
         <div
           ref={heroAnim.ref}
           className={`relative z-10 w-full px-4 sm:px-6 md:px-12 py-20 transition-all duration-1000 ${
@@ -83,10 +84,10 @@ export default function OurServices() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#e9e3db] mb-4">
             Our Services
           </h1>
-          <p className="text-[#e9e3db]/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10">
+          {/* <p className="text-[#e9e3db]/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10">
             Professional photography services to capture every moment, emotion,
             and memory.
-          </p>
+          </p> */}
         </div>
       </section>
 

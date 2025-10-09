@@ -100,6 +100,8 @@ export default function ImageSlider() {
         @media (max-width: 640px) {
           .swiper-button-next,
           .swiper-button-prev {
+            width: 30px;
+            height: 30px;
             top: unset !important;
             bottom: 10px !important;
           }

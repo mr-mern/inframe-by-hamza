@@ -202,7 +202,7 @@ export default function Testimonials() {
               <div className="flex gap-2 text-yellow-400 text-3xl">
                 ★ ★ ★ ★ ★
               </div>
-              <div className="absolute bottom-10 right-10">
+              <div className="absolute bottom-5 md:bottom-10 right-5 md:right-10">
                 <Image
                   src="/images/logos/footer-logo.png"
                   alt="Footer Logo"

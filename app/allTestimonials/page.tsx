@@ -52,7 +52,6 @@ function StarIcon({ filled }: { filled: boolean }) {
   );
 }
 
-// simple reusable hook (safe at top-level)
 function useInView(threshold = 0.2) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -74,8 +73,21 @@ function useInView(threshold = 0.2) {
 export default function AllTestimonialsPage() {
   const [reviews, setReviews] = useState(defaultTestimonials);
   const [currentPage, setCurrentPage] = useState(1);
-  const reviewsPerPage = 6;
+  const [reviewsPerPage, setReviewsPerPage] = useState(6);
   const router = useRouter();
+
+  // Adjust reviews per page dynamically
+  useEffect(() => {
+    const updateReviewsPerPage = () => {
+      if (window.innerWidth >= 1024) setReviewsPerPage(12);
+      else if (window.innerWidth >= 768) setReviewsPerPage(9);
+      else setReviewsPerPage(6);
+    };
+
+    updateReviewsPerPage();
+    window.addEventListener("resize", updateReviewsPerPage);
+    return () => window.removeEventListener("resize", updateReviewsPerPage);
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem("reviews");

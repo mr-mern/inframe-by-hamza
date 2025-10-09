@@ -23,7 +23,7 @@ export default function Hero() {
   }, [images.length]);
 
   return (
-    <section className="relative h-[90vh] md:h-[100vh] w-full overflow-hidden">
+    <section className="relative h-[90vh] w-full overflow-hidden">
       <Loader />
       {/* Background Images */}
       {images.map((img, index) => (

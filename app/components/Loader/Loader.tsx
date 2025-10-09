@@ -17,7 +17,7 @@ export default function Loader() {
             muted
             playsInline
             onEnded={() => setVideoEnded(true)}
-            className="w-300 h-300 object-contain"
+            className="w-120 h-120 object-cover"
             initial={{ opacity: 0, scale: 0.2 }}
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8 }}
@@ -27,16 +27,16 @@ export default function Loader() {
             key="logo"
             initial={{ x: 0, y: 0, scale: 1 }}
             animate={{ 
-              y: "-35vh",   // top side move
-              scale: 0.6    // thoda shrink
+              y: "-25vh",   
+              scale: 0.6  
             }}
             transition={{ duration: 1, ease: "easeInOut" }}
           >
             <Image
               src="/images/logos/footer-logo.png"
               alt="Logo"
-              width={225}
-              height={225}
+              width={200}
+              height={200}
               className="object-contain"
             />
           </motion.div>

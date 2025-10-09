@@ -5,7 +5,7 @@ import Link from "next/link";
 import SectionHeading from "../components/SectionHeading/heading";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import Loader from "../components/Loader/Loader";
+import LogoAnimate from "../components/LogoAnimate";
 
 // Intersection Observer Hook
 function useInView(threshold = 0.2) {
@@ -34,8 +34,9 @@ export default function PortfolioPage() {
   return (
     <main className="bg-[#e9e3db]">
       {/* Hero Banner */}
-      <section className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
-        <Loader />
+      <LogoAnimate />
+
+      <section id="hero" className="relative h-[90vh] flex items-center justify-center text-center overflow-hidden">
         <Image
           src="/images/portfolio/banner.jpg"
           alt="About Hero"
